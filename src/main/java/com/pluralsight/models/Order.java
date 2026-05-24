@@ -9,6 +9,13 @@ public class Order {
     private ArrayList<Drink> drinks;
     // the list of all chips in this order
     private ArrayList<Chips> chips;
+    // the constructor initializes all three empty lists.
+    // when a new order is created it starts with nothing in it
+    public Order() {
+        this.sandwiches = new ArrayList<>();
+        this.drinks = new ArrayList<>();
+        this.chips = new ArrayList<>();
+    }
 
 
 }
