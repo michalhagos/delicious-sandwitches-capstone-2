@@ -7,6 +7,12 @@ public class Topping {
     private String type;
     // whether the customer wants extra of this topping
     private boolean extra;
+    // constructor sets all three fields when a new topping is created
+    public Topping(String name, String type, boolean extra) {
+        this.name = name;
+        this.type = type;
+        this.extra = extra;
+    }
 
 
 }
