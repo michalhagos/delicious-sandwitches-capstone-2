@@ -71,6 +71,14 @@ public class Sandwich {
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
     }
+    // adds a meat topping to the sandwich.meat toppings cost extra money based on size
+    public void addMeat(Topping meat) {
+        toppings.add(meat);
+    }
+    // adds a cheese topping to the sandwich. cheese toppings will cost extra money based on size
+    public void addCheese(Topping cheese) {
+        toppings.add(cheese);
+    }
 
 
 
