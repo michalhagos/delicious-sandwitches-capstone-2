@@ -9,4 +9,12 @@ public class Chips {
     public Chips(String type) {
         this.type = type;
     }
+    // returns the type of chips
+    public String getType() {
+        return type;
+    }
+    // returns the price of the chips. always $1.50
+    public double getPrice() {
+        return price;
+    }
 }
