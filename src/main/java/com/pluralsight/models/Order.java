@@ -41,5 +41,26 @@ public class Order {
     public void addChips(Chips chips) {
         this.chips.add(chips);
     }
+    // getTotal method calculates and returns the total price of everything in the order
+// it adds up all sandwich prices all drink prices and all chips prices
+    public double getTotal() {
+        // start total from 0
+        double total = 0;
+
+        // add up all sandwich prices
+        for (Sandwich sandwich : sandwiches) {
+            total += sandwich.getPrice();
+        }
+        // add up all drink prices
+        for (Drink drink : drinks) {
+            total += drink.getPrice();
+        }
+        // add up all chips prices
+        for (Chips chip : chips) {
+            total += chip.getPrice();
+        }
+
+        return total;
+    }
 
 }
