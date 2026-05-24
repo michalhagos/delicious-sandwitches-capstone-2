@@ -16,6 +16,18 @@ public class Order {
         this.drinks = new ArrayList<>();
         this.chips = new ArrayList<>();
     }
+    // returns the list of all sandwiches in the order
+    public ArrayList<Sandwich> getSandwiches() {
+        return sandwiches;
+    }
+    // returns the list of all drinks in the order
+    public ArrayList<Drink> getDrinks() {
+        return drinks;
+    }
+    // returns the list of all chips in the order
+    public ArrayList<Chips> getChips() {
+        return chips;
+    }
 
 
 }
