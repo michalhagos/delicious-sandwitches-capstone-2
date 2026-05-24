@@ -33,5 +33,13 @@ public class Order {
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
     }
+    // adds a drink to the order
+    public void addDrink(Drink drink) {
+        drinks.add(drink);
+    }
+    // adds chips to the order
+    public void addChips(Chips chips) {
+        this.chips.add(chips);
+    }
 
 }
