@@ -3,17 +3,17 @@ package com.pluralsight.models;
 import java.util.ArrayList;
 
 public class Sandwich {
-        // the type of bread chosen by the customer
-        private String bread;
-        // the size of the sandwich in inches
-        private int size;
-        // whether the customer wants the sandwich toasted
-        private boolean toasted;
-        // the list of all toppings on this sandwich
-        private ArrayList<Topping> toppings;
+    // the type of bread chosen by the customer
+    private String bread;
+    // the size of the sandwich in inches
+    private int size;
+    // whether the customer wants the sandwich toasted
+    private boolean toasted;
+    // the list of all toppings on this sandwich
+    private ArrayList<Topping> toppings;
 
-        // the starting price of the sandwich based on size only.topping prices get added on top of this
-        private double basePrice;
+    // the starting price of the sandwich based on size only.topping prices get added on top of this
+    private double basePrice;
 
     // constructor sets bread size and toasted. base price is  calculated from the size
     public Sandwich(String bread, int size, boolean toasted) {
@@ -33,6 +33,7 @@ public class Sandwich {
             this.basePrice = 8.50;
         }
     }
+
     // returns the bread type of the sandwich
     public String getBread() {
         return bread;
@@ -57,6 +58,7 @@ public class Sandwich {
     public double getBasePrice() {
         return basePrice;
     }
+
     // updates the bread type
     public void setBread(String bread) {
         this.bread = bread;
@@ -71,10 +73,12 @@ public class Sandwich {
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
     }
+
     // adds a meat topping to the sandwich.meat toppings cost extra money based on size
     public void addMeat(Topping meat) {
         toppings.add(meat);
     }
+
     // adds a cheese topping to the sandwich. cheese toppings will cost extra money based on size
     public void addCheese(Topping cheese) {
         toppings.add(cheese);
@@ -90,6 +94,17 @@ public class Sandwich {
         toppings.add(sauce);
     }
 
+    // the getPrice methods calculates and returns the total price of the sandwich
+    // starts with the base price then adds the price of each topping
+    public double getPrice() {
+        double totalPrice = basePrice;
+        // loop through every topping and add its price. each topping knows its own price based on the sandwich size
+        for (Topping topping : toppings) {
+            totalPrice += topping.getPrice(size);
+        }
+
+        return totalPrice;
+    }
 
 }
 
