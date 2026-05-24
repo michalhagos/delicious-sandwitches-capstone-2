@@ -17,4 +17,9 @@ public class Chips {
     public double getPrice() {
         return price;
     }
+    // updates the type of chips
+    public void setType(String type) {
+        this.type = type;
+    }
+
 }
