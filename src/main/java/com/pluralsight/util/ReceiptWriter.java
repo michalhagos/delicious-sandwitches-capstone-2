@@ -1,5 +1,7 @@
 package com.pluralsight.util;
 
+import com.pluralsight.models.Order;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -15,6 +17,15 @@ public class ReceiptWriter {
         // return the formatted timestamp as a string
         return now.format(formatter);
     }
+    // saves the completed order to a receipt file
+// the file is named using the current date and time
+// saved to the receipts folder inside resources
+    public static void saveReceipt(Order order) {
+        try {
 
+        } catch (Exception e) {
+            System.out.println("Error saving receipt: " + e.getMessage());
+        }
+    }
 
 }
