@@ -2,6 +2,8 @@ package com.pluralsight.util;
 
 import com.pluralsight.models.Order;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -17,11 +19,17 @@ public class ReceiptWriter {
         // return the formatted timestamp as a string
         return now.format(formatter);
     }
-    // saves the completed order to a receipt file
+    // this saves the completed order to a receipt file
 // the file is named using the current date and time
 // saved to the receipts folder inside resources
     public static void saveReceipt(Order order) {
         try {
+            // build the file path using the timestamp as the filename
+            // saves to the receipts folder inside resources
+            String fileName = "src/main/resources/receipts/" + generateTimestamp() + ".txt";
+            // opening the file for writing
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+
 
         } catch (Exception e) {
             System.out.println("Error saving receipt: " + e.getMessage());
