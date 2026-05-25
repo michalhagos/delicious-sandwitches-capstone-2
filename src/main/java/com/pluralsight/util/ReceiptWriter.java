@@ -33,6 +33,11 @@ public class ReceiptWriter {
             // getOrderSummary already has all the items and total price formatted
             writer.write(order.getOrderSummary());
             writer.newLine();
+            // close the file when done writing. otherwise the file might not save correctly
+            writer.close();
+            // let the user know the receipt was saved successfully
+            System.out.println("Receipt saved successfully!");
+
 
         } catch (Exception e) {
             System.out.println("Error saving receipt: " + e.getMessage());
