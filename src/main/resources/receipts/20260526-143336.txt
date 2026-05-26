@@ -1,0 +1,16 @@
+***** Order Summary *****
+12 wheat sandwich (toasted)
+  - steak
+  - bacon (extra)
+  - cheddar
+  - swiss (extra)
+  - lettuce
+  - onion
+  - jalapenos
+  - ranch
+  - mustard
+  Price: $16.15
+large cola drink - $3.00
+doritos chips - $1.50
+*************************
+Total: $20.65
