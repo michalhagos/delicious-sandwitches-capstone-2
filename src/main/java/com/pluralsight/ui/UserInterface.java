@@ -67,7 +67,7 @@ public class UserInterface {
 
             switch (choice) {
                 case "1":
-                   // processAddSandwich(order);
+                    processAddSandwich(order);
                     break;
                 case "2":
                   //  processAddDrink(order);
@@ -89,5 +89,76 @@ public class UserInterface {
             }
         }
     }
+    // processAddSandwich method walks the user through building a custom sandwich step by step
+    // then adds the finished sandwich to the order
+    private void processAddSandwich(Order order) {
+        System.out.println("\n--- Build Your Sandwich ---");
 
+        // ask for bread type
+        System.out.println("Bread types: white, wheat, rye, wrap");
+        System.out.print("Choose your bread: ");
+        String bread = scanner.nextLine().trim();
+
+        // ask for size
+        System.out.print("Choose your size (4, 8, or 12): ");
+        int size = Integer.parseInt(scanner.nextLine().trim());
+
+        // ask if toasted
+        System.out.print("Would you like it toasted? (yes/no): ");
+        boolean toasted = scanner.nextLine().trim().equalsIgnoreCase("yes");
+
+        // create the sandwich with bread size and toasted
+        Sandwich sandwich = new Sandwich(bread, size, toasted);
+
+        // ask for meats
+        System.out.println("\nMeats available: steak, ham, salami, roast beef, chicken, bacon");
+        System.out.println("Type a meat and press enter. Type done when finished.");
+        while (true) {
+            System.out.print("Add meat (or done): ");
+            String meat = scanner.nextLine().trim();
+            if (meat.equalsIgnoreCase("done")) break;
+
+            System.out.print("Would you like extra " + meat + "? (yes/no): ");
+            boolean extra = scanner.nextLine().trim().equalsIgnoreCase("yes");
+            sandwich.addMeat(new Topping(meat, "meat", extra));
+        }
+
+        // ask for cheeses
+        System.out.println("\nCheeses available: american, provolone, cheddar, swiss");
+        System.out.println("Type a cheese and press enter. Type done when finished.");
+        while (true) {
+            System.out.print("Add cheese (or done): ");
+            String cheese = scanner.nextLine().trim();
+            if (cheese.equalsIgnoreCase("done")) break;
+
+            System.out.print("Would you like extra " + cheese + "? (yes/no): ");
+            boolean extra = scanner.nextLine().trim().equalsIgnoreCase("yes");
+            sandwich.addCheese(new Topping(cheese, "cheese", extra));
+        }
+
+        // ask for regular toppings
+        System.out.println("\nToppings available: lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms");
+        System.out.println("Type a topping and press enter. Type done when finished.");
+        while (true) {
+            System.out.print("Add topping (or done): ");
+            String topping = scanner.nextLine().trim();
+            if (topping.equalsIgnoreCase("done")) break;
+            sandwich.addTopping(new Topping(topping, "regular", false));
+        }
+
+        // ask for sauces
+        System.out.println("\nSauces available: mayo, mustard, ketchup, ranch, thousand island, vinaigrette");
+        System.out.println("Type a sauce and press enter. Type done when finished.");
+        while (true) {
+            System.out.print("Add sauce (or done): ");
+            String sauce = scanner.nextLine().trim();
+            if (sauce.equalsIgnoreCase("done")) break;
+            sandwich.addSauce(new Topping(sauce, "sauce", false));
+        }
+
+        // add the completed sandwich to the order
+        order.addSandwich(sandwich);
+        System.out.println("\nSandwich added to your order!");
+        System.out.println(sandwich.getSummary());
+    }
 }
