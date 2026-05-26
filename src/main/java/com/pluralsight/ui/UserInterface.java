@@ -178,4 +178,42 @@ public class UserInterface {
 
         System.out.println("Drink added: " + drink.getSummary());
     }
+    // the processAddChips asks the user for chip type. adds the chips to the order
+    private void processAddChips(Order order) {
+        System.out.println("\n--- Add Chips ---");
+        System.out.print("Choose your chip type: ");
+        String type = scanner.nextLine().trim();
+
+        // create the chips and add them to the order
+        Chips chips = new Chips(type);
+        order.addChips(chips);
+
+        System.out.println("Chips added: " + chips.getSummary());
+    }
+    // the processCheckout method displays the full order summary and asks the user to confirm or cancel
+    private boolean processCheckout(Order order) {
+        System.out.println("\n===== Checkout =====");
+
+        // show the full order summary with all items and total
+        System.out.println(order.getOrderSummary());
+
+        System.out.println("\n1) Confirm order");
+        System.out.println("0) Cancel and go back");
+        System.out.print("Enter option: ");
+
+        String choice = scanner.nextLine().trim();
+    // returns true if confirmed so the order screen loop ends
+        if (choice.equals("1")) {
+            // save the receipt and confirm the order
+            ReceiptWriter.saveReceipt(order);
+            System.out.println("Thank you for your order!");
+            return true;
+            // returns false if cancelled so the order screen loop continues
+        } else {
+            // go back to the order screen
+            System.out.println("Going back to order screen.");
+            return false;
+        }
+    }
+
 }
