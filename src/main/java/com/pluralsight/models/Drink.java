@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-public class Drink {
+public class Drink implements Priceable {
     // the size of the drink chosen by the customer. small medium or large
     private String size;
     // the flavor of the drink chosen by the customer
@@ -29,7 +29,10 @@ public class Drink {
     public String getFlavor() {
         return flavor;
     }
+
     // returns the price of the drink
+    // fulfills the Priceable interface contract
+    @Override
     public double getPrice() {
         return price;
     }
@@ -43,6 +46,7 @@ public class Drink {
     }
     // getSummary method returns a readable description of the drink
     // used when displaying the order summary and writing the receipt
+    @Override
     public String getSummary() {
         return String.format("%s %s drink - $%.2f", size, flavor, price);
     }
