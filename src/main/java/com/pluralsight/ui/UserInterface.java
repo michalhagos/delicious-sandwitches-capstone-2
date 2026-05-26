@@ -1,10 +1,12 @@
 package com.pluralsight.ui;
+
 import com.pluralsight.models.Chips;
 import com.pluralsight.models.Drink;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
 import com.pluralsight.models.Topping;
 import com.pluralsight.util.ReceiptWriter;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -15,8 +17,9 @@ public class UserInterface {
     public UserInterface() {
         this.scanner = new Scanner(System.in);
     }
+
     // starts the application and runs the home screen loop
-// keeps running until the user chooses to exit
+    // keeps running until the user chooses to exit
     public void display() {
         boolean running = true;
 
@@ -24,7 +27,7 @@ public class UserInterface {
             // show the home screen menu
             System.out.println("\n===================================");
             System.out.println("   Welcome to DELICIOUS-SANDWICHES!");
-            System.out.println("==================================== ");
+            System.out.println("=================================== ");
             System.out.println("1) New Order");
             System.out.println("0) Exit");
             System.out.print("Enter option: ");
@@ -46,6 +49,7 @@ public class UserInterface {
             }
         }
     }
+
     // the processNewOrder method creates a new order and shows the order screen
 // keeps running until the user checks out or cancels
     private void processNewOrder() {
@@ -70,14 +74,14 @@ public class UserInterface {
                     processAddSandwich(order);
                     break;
                 case "2":
-                  //  processAddDrink(order);
+                    processAddDrink(order);
                     break;
                 case "3":
-                   // processAddChips(order);
+                    processAddChips(order);
                     break;
                 case "4":
                     // go to check out and stop the loop if confirmed
-                  //  ordering = !processCheckout(order);
+                    ordering = !processCheckout(order);
                     break;
                 case "0":
                     // cancel the order and go back to home screen
@@ -89,6 +93,7 @@ public class UserInterface {
             }
         }
     }
+
     // processAddSandwich method walks the user through building a custom sandwich step by step
     // then adds the finished sandwich to the order
     private void processAddSandwich(Order order) {
@@ -161,6 +166,7 @@ public class UserInterface {
         System.out.println("\nSandwich added to your order!");
         System.out.println(sandwich.getSummary());
     }
+
     // processAddDrink method asks the user for drink size and flavor
     // adds the drink to the order
     private void processAddDrink(Order order) {
@@ -178,6 +184,7 @@ public class UserInterface {
 
         System.out.println("Drink added: " + drink.getSummary());
     }
+
     // the processAddChips asks the user for chip type. adds the chips to the order
     private void processAddChips(Order order) {
         System.out.println("\n--- Add Chips ---");
@@ -190,6 +197,7 @@ public class UserInterface {
 
         System.out.println("Chips added: " + chips.getSummary());
     }
+
     // the processCheckout method displays the full order summary and asks the user to confirm or cancel
     private boolean processCheckout(Order order) {
         System.out.println("\n===== Checkout =====");
@@ -202,7 +210,7 @@ public class UserInterface {
         System.out.print("Enter option: ");
 
         String choice = scanner.nextLine().trim();
-    // returns true if confirmed so the order screen loop ends
+        // returns true if confirmed so the order screen loop ends
         if (choice.equals("1")) {
             // save the receipt and confirm the order
             ReceiptWriter.saveReceipt(order);
