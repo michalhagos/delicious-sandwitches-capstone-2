@@ -2,7 +2,7 @@ package com.pluralsight.models;
 
 import java.util.ArrayList;
 
-public class Sandwich {
+public class Sandwich implements Priceable{
     // the type of bread chosen by the customer
     private String bread;
     // the size of the sandwich in inches
@@ -96,6 +96,7 @@ public class Sandwich {
 
     // the getPrice methods calculates and returns the total price of the sandwich
     // starts with the base price then adds the price of each topping
+    @Override
     public double getPrice() {
         double totalPrice = basePrice;
         // loop through every topping and add its price. each topping knows its own price based on the sandwich size
@@ -108,6 +109,7 @@ public class Sandwich {
 
     // the getSummary method returns a full description of the sandwich
     // used when displaying the order summary and writing the receipt
+    @Override
     public String getSummary() {
         // create a String Builder.
         StringBuilder summary = new StringBuilder();
