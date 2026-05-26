@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-public class Chips {
+public class Chips implements Priceable {
     // the type of chips chosen by customer
     private String type;
     // chips are always a flat price of $1.50
@@ -14,6 +14,7 @@ public class Chips {
         return type;
     }
     // returns the price of the chips. always $1.50
+    @Override
     public double getPrice() {
         return price;
     }
@@ -23,6 +24,7 @@ public class Chips {
     }
     // this getSummary method returns a readable description of the chips
     // used when displaying the order summary and writing the receipt
+    @Override
     public String getSummary() {
         return String.format("%s chips - $%.2f", type, price);
     }
