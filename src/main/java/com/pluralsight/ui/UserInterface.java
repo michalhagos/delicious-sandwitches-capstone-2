@@ -64,6 +64,7 @@ public class UserInterface {
             System.out.println("2) Add Drink");
             System.out.println("3) Add Chips");
             System.out.println("4) Checkout");
+            System.out.println("5) Add Signature Sandwich");
             System.out.println("0) Cancel Order");
             System.out.print("Enter option: ");
 
@@ -82,6 +83,9 @@ public class UserInterface {
                 case "4":
                     // go to check out and stop the loop if confirmed
                     ordering = !processCheckout(order);
+                    break;
+                case "5":
+                   // processAddSignatureSandwich(order);
                     break;
                 case "0":
                     // cancel the order and go back to home screen
