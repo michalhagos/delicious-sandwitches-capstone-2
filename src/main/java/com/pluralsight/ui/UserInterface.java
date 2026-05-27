@@ -1,10 +1,6 @@
 package com.pluralsight.ui;
 
-import com.pluralsight.models.Chips;
-import com.pluralsight.models.Drink;
-import com.pluralsight.models.Order;
-import com.pluralsight.models.Sandwich;
-import com.pluralsight.models.Topping;
+import com.pluralsight.models.*;
 import com.pluralsight.util.ReceiptWriter;
 
 import java.util.Scanner;
@@ -85,7 +81,7 @@ public class UserInterface {
                     ordering = !processCheckout(order);
                     break;
                 case "5":
-                   // processAddSignatureSandwich(order);
+                    processAddSignatureSandwich(order);
                     break;
                 case "0":
                     // cancel the order and go back to home screen
@@ -228,4 +224,32 @@ public class UserInterface {
         }
     }
 
+    // processAddSignatureSandwich method shows the signature sandwich menu and adds the chosen one to the order
+    private void processAddSignatureSandwich(Order order) {
+        System.out.println("\n--- Signature Sandwiches ---");
+        System.out.println("1) BLT - 8\" white, bacon, cheddar, lettuce, tomato, ranch, toasted");
+        System.out.println("2) Philly Cheese Steak - 8\" white, steak, american, peppers, mayo, toasted");
+        System.out.print("Choose your signature sandwich: ");
+
+        String choice = scanner.nextLine().trim();
+
+        switch (choice) {
+            case "1":
+                // create the BLT and add it to the order
+                BLTSandwich blt = new BLTSandwich();
+                order.addSandwich(blt);
+                System.out.println("\nBLT added to your order!");
+                System.out.println(blt.getSummary());
+                break;
+            case "2":
+                // create the Philly Cheese Steak and add it to the order
+                PhillyCheeseSteak philly = new PhillyCheeseSteak();
+                order.addSandwich(philly);
+                System.out.println("\nPhilly Cheese Steak added to your order!");
+                System.out.println(philly.getSummary());
+                break;
+            default:
+                System.out.println("Invalid option. Going back to order screen.");
+        }
+    }
 }
