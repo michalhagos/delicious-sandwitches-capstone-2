@@ -1,0 +1,12 @@
+***** Order Summary *****
+12 rye sandwich (toasted)
+  - salami (extra)
+  - chicken
+  - cheddar
+  - lettuce
+  - jalapenos
+  - ranch
+  Price: $15.25
+small Lemonade drink - $2.00
+*************************
+Total: $17.25
