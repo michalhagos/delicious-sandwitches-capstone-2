@@ -105,8 +105,20 @@ public class UserInterface {
         String bread = scanner.nextLine().trim();
 
         // ask for size
+        // if the user types a letter instead of a number we catch the error
         System.out.print("Choose your size (4, 8, or 12): ");
-        int size = Integer.parseInt(scanner.nextLine().trim());
+        int size;
+        try {
+            size = Integer.parseInt(scanner.nextLine().trim());
+            // check if the size is valid only 4,8 or 12
+            if (size != 4 && size != 8 && size != 12) {
+                System.out.println("Invalid size. Please enter 4 8 or 12.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            return;
+        }
 
         // ask if toasted
         System.out.print("Would you like it toasted? (yes/no): ");

@@ -1,0 +1,14 @@
+***** Order Summary *****
+8 rye sandwich (toasted)
+  - chicken (extra)
+  - steak
+  - american
+  - lettuce
+  - peppers
+  - mayo
+  - ranch
+  Price: $11.50
+small cola drink - $2.00
+doridos chips - $1.50
+*************************
+Total: $15.00
